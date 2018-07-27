@@ -1,8 +1,10 @@
-let canvas = document.getElementById('tetris');
+
 
 class Tetris {
 	constructor(canvas){
 		this.canvas = canvas;
+		this.canvasWidth = canvas.width;
+		this.canvasHeight = canvas.height;
 		this.gameArea = [
 			['.','.','.','.','.','.','.','.','.'],
 			['.','.','.','.','.','.','.','.','.'],
@@ -34,11 +36,11 @@ class Tetris {
 		];
 		this.I = ['*','*','*','*'];
 		this.J = [
-			['*','*','*']
+			['*','*','*'],
 			['.','.','*']
 		];
 		this.L = [
-			['*','*','*']
+			['*','*','*'],
 			['*','.','.']
 		];
 		this.O = [
@@ -57,5 +59,28 @@ class Tetris {
 			['*','*','.'],
 			['.','*','*']
 		];
+		this.figures = [this.I,this.J,this.L,this.O,this.S,this.T,this.Z];
 	}
+
+	randomFigure(){
+		let figureIndex = Math.floor(Math.random() * (this.figures.length));
+		console.log(this.figures[figureIndex]);
+	}
+
+	render(){
+
+	}
+
+	clear(){
+
+	}
+
 }
+
+
+window.onload = ()=>{
+	let canvas = document.getElementById('tetris');
+	let tetris = new Tetris(canvas);
+	tetris.randomFigure();
+}
+
